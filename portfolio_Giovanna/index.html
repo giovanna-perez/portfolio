@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gia Perez | Portfólio</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/box-shadows.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Dancing Script & Josefin Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. VARIÁVEIS DE COR E CONFIGURAÇÕES GERAIS (Estética Sabrina Carpenter)
+           ========================================================================== */
+        :root {
+            --rosa-principal: #FFB6C1;
+            --rosa-medio: #FFDBE9;
+            --rosa-claro: #FFE6EE;
+            --marrom-escuro: #4E312D;
+            --marrom-suave: #6E4A45;
+            --bg-creme: #FFF9FA;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: var(--bg-creme);
+            color: var(--marrom-escuro);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            color: var(--marrom-escuro);
+        }
+
+        /* Animações suaves de entrada */
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+           2. NAVBAR
+           ========================================================================== */
+        .navbar {
+            background-color: rgba(255, 230, 238, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--rosa-principal);
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+        }
+
+        .nav-link {
+            color: var(--marrom-escuro) !important;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--rosa-principal) !important;
+        }
+
+        /* ==========================================================================
+           3. HERO SECTION
+           ========================================================================== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--rosa-claro), var(--rosa-medio));
+            padding: 100px 0 60px 0;
+            border-bottom: 2px solid var(--rosa-principal);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* ==========================================================================
+           4. MOSAICO SIMÉTRICO (HOME PAGE)
+           ========================================================================== */
+        .mosaico-container {
+            padding: 60px 0;
+        }
+
+        .mosaico-card {
+            background-color: #fff;
+            border: 1px solid var(--rosa-medio);
+            border-radius: 0;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(78, 49, 45, 0.05);
+        }
+
+        .mosaico-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--marrom-escuro);
+            background-color: var(--rosa-claro);
+        }
+
+        .mosaico-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* ==========================================================================
+           5. PROJETOS (CARDS E BADGES)
+           ========================================================================== */
+        .projects-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .card-projeto {
+            border: none;
+            border-radius: 0;
+            background-color: var(--bg-creme);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease;
+        }
+
+        .card-projeto:hover {
+            transform: scale(1.02);
+        }
+
+        .placeholder-img {
+            background-color: var(--rosa-medio);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--marrom-escuro);
+            font-style: italic;
+            border-bottom: 1px solid var(--rosa-principal);
+        }
+
+        .badge-custom {
+            background-color: var(--marrom-escuro);
+            color: var(--rosa-claro);
+            font-weight: 400;
+            border-radius: 0;
+            padding: 6px 12px;
+        }
+
+        .btn-custom {
+            background-color: var(--marrom-escuro);
+            color: #fff;
+            border: none;
+            border-radius: 0;
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: var(--rosa-principal);
+            color: var(--marrom-escuro);
+        }
+
+        /* ==========================================================================
+           6. SOBRE MIM (TRAJETÓRIA ARTÍSTICA)
+           ========================================================================== */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--rosa-claro);
+        }
+
+        .placeholder-perfil {
+            background-color: var(--rosa-medio);
+            height: 450px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--marrom-escuro);
+            color: var(--marrom-escuro);
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           7. CONTATO E FOOTER
+           ========================================================================== */
+        .contact-section {
+            padding: 80px 0;
+            background-color: var(--marrom-escuro);
+            color: var(--rosa-claro);
+        }
+
+        .contact-section h2 {
+            color: var(--rosa-principal);
+        }
+
+        .contact-link {
+            color: var(--rosa-medio);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #fff;
+        }
+
+        /* Estilo para as "páginas" dos projetos (Modais do Bootstrap configurados como tela cheia) */
+        .modal-content-custom {
+            background-color: var(--bg-creme);
+            color: var(--marrom-escuro);
+            border: none;
+        }
+        
+        .media-placeholder {
+            background-color: var(--rosa-claro);
+            border: 2px dashed var(--rosa-principal);
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--marrom-suave);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Gia Perez</a>
+            <button class="navbar-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre Mim</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero-section text-center fade-in-up">
+        <div class="container">
+            <h1 class="hero-title">Gia Perez</h1>
+            <p class="hero-subtitle">Atriz • Dançarina • Cineasta</p>
+        </div>
+    </section>
+
+    <!-- MOSAICO SIMÉTRICO (3 COLUNAS) -->
+    <section class="mosaico-container container fade-in-up">
+        <div class="row g-4">
+            <!-- Coluna 1: Projetos -->
+            <div class="col-md-4">
+                <div class="mosaico-card">
+                    <h3>Portfólio</h3>
+                    <p>Explore meus trabalhos mais recentes em musicais amadores e produções audiovisuais estudantis.</p>
+                    <a href="#projetos" class="btn btn-custom mt-auto">Ver Projetos</a>
+                </div>
+            </div>
+            <!-- Coluna 2: Trajetória -->
+            <div class="col-md-4">
+                <div class="mosaico-card">
+                    <h3>Minha Trajetória</h3>
+                    <p>De Manaus para São Paulo. Conheça minha história, formação acadêmica em Cinema e teatro técnico.</p>
+                    <a href="#sobre" class="btn btn-custom mt-auto">Conhecer Trajetória</a>
+                </div>
+            </div>
+            <!-- Coluna 3: Contato -->
+            <div class="col-md-4">
+                <div class="mosaico-card">
+                    <h3>Conecte-se</h3>
+                    <p>Entre em contato para parcerias, trabalhos artísticos, projetos cinematográficos ou produções.</p>
+                    <a href="#contato" class="btn btn-custom mt-auto">Fale Comigo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="container my-5" style="border-color: var(--rosa-principal);">
+
+    <!-- SEÇÃO PROJETOS (GRADE RESPONSIVA) -->
+    <section id="projetos" class="projects-section container">
+        <h2 class="section-title">Meus Projetos</h2>
+        <div class="row g-4">
+            
+            <!-- Projeto 1 -->
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 card-projeto">
+                   <img src="capa_rio.jpg" alt="Musical Rio, Uma Aventura na Amazônia" class="img-fluid w-100" style="height: 250px; object-fit: cover; border-bottom: 1px solid var(--rosa-principal);">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-custom mb-2 alignment-self-start">Musical Amador (2022)</span>
+                        <h4 class="card-title">Rio, Uma Aventura na Amazônia</h4>
+                        <p class="card-text text-muted">Apresentação da obra Rio 2 (Disney), produzido por Backstage Studio de Dança. Atuação como personagem secundário e dançarina.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 card-projeto">
+                    <img src="capa_reileao.jpg" alt="Musical Rei Leão" class="img-fluid w-100" style="height: 250px; object-fit: cover; border-bottom: 1px solid var(--rosa-principal);">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-custom mb-2 alignment-self-start">Musical Amador (2024)</span>
+                        <h4 class="card-title">Rei Leão</h4>
+                        <p class="card-text text-muted">Apresentação da obra clássica Rei Leão (Disney), produzida por Backstage Studio de Dança. Participação como dançarina.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 card-projeto">
+                    <img src="capa_hairspray.jpg" alt="Musical Hairspray" class="img-fluid w-100" style="height: 250px; object-fit: cover; border-bottom: 1px solid var(--rosa-principal);">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-custom mb-2 alignment-self-start">Musical Amador (2025)</span>
+                        <h4 class="card-title">Hairspray</h4>
+                        <p class="card-text text-muted">Apresentação da icônica obra Hairspray produzida por Backstage Studio de Dança. Performance atuando como antagonista e dançarina.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 4 -->
+            <div class="col-sm-6 col-md-4 mx-auto">
+                <div class="card h-100 card-projeto">
+                    <img src="capa_videoclipe.jpeg" alt="Videoclipe It's a Girl Party" class="img-fluid w-100" style="height: 250px; object-fit: cover; border-bottom: 1px solid var(--rosa-principal);">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-custom mb-2 alignment-self-start">Videoclipe Estudantil (2026)</span>
+                        <h4 class="card-title">It’s a Girl Party</h4>
+                        <p class="card-text text-muted">Produção estudantil para a música da artista Kenzi. Atuação multifacetada como atriz, roteirista e editora.</p>
+                    </div>
+                </div>
+            </div>
+            
+              <!-- Projeto 5 -->
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 card-projeto">
+                    <img src="capa_segundaalma.jpeg" alt="Curta-metragem A Segunda Alma" class="img-fluid w-100" style="height: 250px; object-fit: cover; border-bottom: 1px solid var(--rosa-principal);">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-custom mb-2 align-self-start">Curta-Metragem (2026)</span>
+                        <h4 class="card-title">A Segunda Alma</h4>
+                        <p class="card-text text-muted">Curta-metragem estudantil adaptado a partir do célebre conto "O Espelho" de Machado de Assis. Atuação como produtora e atriz.</p>
+                    </div>
+                </div>
+            </div>
+            
+             <!-- Projeto 6 -->
+            <div class="col-sm-6 col-md-4">
+                <div class="card h-100 card-projeto">
+                   <img src="capa_documentario.png" alt="A Ascensão olímpica do Brasil além do Futebol, uma nova potência mundial" class="img-fluid w-100" style="height: 250px; object-fit: cover; border-bottom: 1px solid var(--rosa-principal);">
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge badge-custom mb-2 alignment-self-start">Mini documentário (2026)</span>
+                        <h4 class="card-title">A Ascensão olímpica do Brasil além do Futebol, uma nova potência mundial</h4>
+                        <p class="card-text text-muted">A Ascensão olímpica do Brasil além do Futebol, uma nova potência mundial- Mini documentário, 2026. </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+       6. SOBRE MIM (TRAJETÓRIA ARTÍSTICA)
+       ========================================================================== -->
+    <section id="sobre" class="about-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-md-5">
+                    <!-- FOTO DE PERFIL ATUALIZADA -->
+                    <div class="placeholder-perfil" style="border: none; background: none; height: auto;">
+                        <img src="GiaPerez.jpeg" alt="Gia Perez - Atriz, Dançarina e Cineasta" class="img-fluid shadow" style="border-radius: 0; border: 1px solid var(--rosa-principal);">
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <h2 class="section-title text-start mb-4">Minha Trajetória Artística</h2>
+                    <p class="lead">Nascida em Manaus, a arte sempre esteve presente nos meus primeiros passos: comecei a dançar com apenas 1 ano de idade e experimentei os palcos do teatro brevemente durante a infância.</p>
+                    <p>Em busca de expandir meus horizontes no cinema e na atuação, mudei-me para São Paulo em 2026. Atualmente, curso <strong>Cinema e Audiovisual na ESPM</strong> e me dedico a um curso técnico de atuação, com formação prevista para Julho de 2027.</p>
+                    <blockquote class="blockquote border-start border-3 ps-3 my-4" style="border-color: var(--marrom-escuro) !important;">
+                        <p class="mb-0 italic">"Unindo a expressão do corpo na dança, a entrega da atuação e a visão por trás das câmeras no cinema."</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO CONTATO -->
+    <section id="contato" class="contact-section text-center">
+        <div class="container">
+            <h2 class="section-title mb-4">Vamos criar algo juntos?</h2>
+            <p class="mb-5">Disponível para projetos cinematográficos, espetáculos de dança, peças de teatro e marcas que conversem com minha estética estética e propósito.</p>
+            <div class="row justify-content-center g-4">
+                <div class="col-md-4">
+                    <h5>E-mail</h5>
+                    <a href="mailto:gihprz06@hotmail.com" class="contact-link">gihprz06@hotmail.com</a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Instagram</h5>
+                    <a href="https://instagram.com/itsgiaperez" target="_blank" class="contact-link">@itsgiaperez</a>
+                </div>
+            </div>
+            <p class="mt-5 pt-4 small opacity-50">&copy; 2026 Gia Perez. Todos os direitos reservados.</p>
+        </div>
+    </section>
+</body>
+</html>
